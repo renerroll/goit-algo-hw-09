@@ -3,20 +3,7 @@ import timeit
 COINS = [50, 25, 10, 5, 2, 1]
 
 
-def handle_error(func):
-    def wrapper(total, coins):
-        if total <= 0:
-            raise ValueError("Total amount must be a positive integer.")
-        if not coins or any(coin <= 0 for coin in coins):
-            raise ValueError("Coins must be a non-empty list of positive integers.")
-        if total == 0 or min(COINS) > total:
-            return {}
-        return func(total, coins)
 
-    return wrapper
-
-
-@handle_error
 def find_coins_greedy(total, coins):
     change_coins = {}
     descending_coins_range = sorted(coins, reverse=True)
@@ -29,7 +16,6 @@ def find_coins_greedy(total, coins):
     return change_coins
 
 
-@handle_error
 def find_min_coins(total, coins):
     dp = [float("inf")] * (total + 1)
     dp[0] = 0
