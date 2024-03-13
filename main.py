@@ -57,29 +57,32 @@ if __name__ == "__main__":
     greedy_lg_coin_combinations = find_min_coins(2355, COINS)
     dynamic_lg_coin_combinations = find_min_coins(2355, COINS)
 
-    # Results for different exchange amounts made with the greedy algorithm
-    print("{:<24}".format("Greedy algorithm:"), f"{greedy_sm:.6f} sec")
-    print("{:<24}".format("Greedy algorithm:"), f"{greedy_md:.6f} sec")
-    print("{:<24}".format("Greedy algorithm:"), f"{greedy_lg:.6f} sec")
-    # Results for different exchange amounts made with the dynamic programming algorithm
-    print("{:<24}".format("Dynamic programming:"), f"{dynamic_sm:.6f} sec")
-    print("{:<24}".format("Dynamic programming:"), f"{dynamic_md:.6f} sec")
-    print("{:<24}".format("Dynamic programming:"), f"{dynamic_lg:.6f} sec")
+  # Results for different exchange amounts made with the greedy algorithm
+print("Results for different exchange amounts made with the greedy algorithm:")
+print("{:<24} {:<10}".format("Amount", "Time (sec)"))
+print("{:<24} {:.6f}".format("38:", greedy_simple))
+print("{:<24} {:.6f}".format("63:", greedy_sm))
+print("{:<24} {:.6f}".format("431:", greedy_md))
+print("{:<24} {:.6f}".format("2355:", greedy_lg))
+print()
 
-    # Coin combinations
-    print(
-        "Greedy allgorithm:",
-        greedy_sm_coin_combinations,
-        greedy_md_coin_combinations,
-        greedy_lg_coin_combinations,
-    )
-    print(
-        "Dynamic programming:",
-        dynamic_sm_coin_combinations,
-        dynamic_md_coin_combinations,
-        dynamic_lg_coin_combinations,
-    )
+# Results for different exchange amounts made with the dynamic programming algorithm
+print("Results for different exchange amounts made with the dynamic programming algorithm:")
+print("{:<24} {:<10}".format("Amount", "Time (sec)"))
+print("{:<24} {:.6f}".format("38:", dynamic_simple))
+print("{:<24} {:.6f}".format("63:", dynamic_sm))
+print("{:<24} {:.6f}".format("431:", dynamic_md))
+print("{:<24} {:.6f}".format("2355:", dynamic_lg))
+print()
 
-    # Simple
-    print("{:<24}".format("Simple amount (greedy):"), f"{greedy_simple:.6f} sec")
-    print("{:<24}".format("Simple amount (dynamic):"), f"{dynamic_simple:.6f} sec")
+# Coin combinations
+print("Coin combinations:")
+print("{:<24} {:<35} {:<35}".format("Algorithm", "63:", "431:"))
+print("{:<24} {:<35} {:<35}".format("Greedy algorithm:", str(greedy_sm_coin_combinations), str(greedy_md_coin_combinations)))
+print("{:<24} {:<35} {:<35}".format("Dynamic programming:", str(dynamic_sm_coin_combinations), str(dynamic_md_coin_combinations)))
+print()
+
+# Simple amounts
+print("Time for simple amounts:")
+print("{:<24} {:.6f}".format("Greedy:", greedy_simple))
+print("{:<24} {:.6f}".format("Dynamic programming:", dynamic_simple))
